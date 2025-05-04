@@ -1,73 +1,227 @@
 {
-    "editor.fontSize": 18,
-    "editor.fontFamily": "Jetbrains Mono",
-    "editor.fontLigatures": true,
-    "workbench.iconTheme": "catppuccin-macchiato",
-    "workbench.colorTheme": "Catppuccin Macchiato",
-    "cmake.showOptionsMovedNotification": false,
-    "editor.formatOnSave": true,
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "prettier.tabWidth": 4
+	//Main editor settings
+	"window.openFilesInNewWindow": "off",
+	"editor.tabSize": 4,
+	"editor.folding": false,
+	"editor.insertSpaces": false,
+	"editor.detectIndentation": true,
+	"editor.suggestSelection": "first",
+	"editor.multiCursorModifier": "ctrlCmd",
+	"window.zoomLevel": 1.25,
 
-    "code-runner.executorMap": {
-        "javascript": "node",
-        "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
-        "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-        "zig": "zig run",
-        "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-        "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-        "php": "php",
-        "python": "python3",
-        "perl": "perl",
-        "perl6": "perl6",
-        "ruby": "ruby",
-        "go": "go run",
-        "lua": "lua",
-        "groovy": "groovy",
-        "powershell": "powershell -ExecutionPolicy ByPass -File",
-        "bat": "cmd /c",
-        "shellscript": "bash",
-        "fsharp": "fsi",
-        "csharp": "scriptcs",
-        "vbscript": "cscript //Nologo",
-        "typescript": "ts-node",
-        "coffeescript": "coffee",
-        "scala": "scala",
-        "swift": "swift",
-        "julia": "julia",
-        "crystal": "crystal",
-        "ocaml": "ocaml",
-        "r": "Rscript",
-        "applescript": "osascript",
-        "clojure": "lein exec",
-        "haxe": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
-        "rust": "cd $dir && rustc $fileName && $dir$fileNameWithoutExt",
-        "racket": "racket",
-        "scheme": "csi -script",
-        "ahk": "autohotkey",
-        "autoit": "autoit3",
-        "dart": "dart",
-        "pascal": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
-        "d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
-        "haskell": "runghc",
-        "nim": "nim compile --verbosity:0 --hints:off --run",
-        "lisp": "sbcl --script",
-        "kit": "kitc --run",
-        "v": "v run",
-        "sass": "sass --style expanded",
-        "scss": "scss --style expanded",
-        "less": "cd $dir && lessc $fileName $fileNameWithoutExt.css",
-        "FortranFreeForm": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-        "fortran-modern": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-        "fortran_fixed-form": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-        "fortran": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-        "sml": "cd $dir && sml $fileName",
-        "mojo": "mojo run",
-        "erlang": "escript",
-        "spwn": "spwn build",
-        "pkl": "cd $dir && pkl eval -f yaml $fileName -o $fileNameWithoutExt.yaml",
-        "gleam": "gleam run -m $fileNameWithoutExt"
-    }
+	// Wrapping
+	"editor.wordWrap": "bounded",
+	"editor.wrappingIndent": "same",
+	"editor.wordWrapColumn": 80,
+
+	//Определяет, будет ли редактор прокручиваться за пределы последней строки.
+	"editor.scrollBeyondLastLine": true,
+	// Rename tags
+	"editor.linkedEditing": true,
+
+	// Auto closing tags
+	"html.autoClosingTags": true,
+	"javascript.autoClosingTags": true,
+	"typescript.autoClosingTags": true,
+
+	//Определяет, должен ли редактор отображать управляющие символы.
+	"editor.renderControlCharacters": false,
+
+	//Управляет выделением символов, которые можно спутать с основными символами ASCII, кроме тех, которые являются общими для текущего пользовательского языкового стандарта.
+	"editor.unicodeHighlight.ambiguousCharacters": false,
+
+	"editor.quickSuggestionsDelay": 0,
+	"html.completion.attributeDefaultValue": "singlequotes",
+	"editor.glyphMargin": false,
+	"editor.scrollbar.horizontal": "hidden",
+	"editor.scrollbar.vertical": "hidden",
+	"window.density.editorTabHeight": "compact",
+	"editor.accessibilitySupport": "off",
+	"window.commandCenter": false,
+	"symbols.hidesExplorerArrows": false,
+
+	// Cursor
+	"editor.cursorBlinking": "expand",
+	"editor.cursorStyle": "line-thin",
+	"editor.lineHeight": 25,
+	"editor.fontLigatures": false,
+	"editor.fontFamily": "JetBrains Mono",
+
+	"editor.tokenColorCustomizations": {
+		"textMateRules": [
+			{
+				"scope": [
+					//following will be in italic
+					"comment",
+					"entity.name.type.class", //class names
+					"keyword", //import, export, return…
+					"constant", //String, Number, Boolean…, this, super
+					"storage.modifier", //static keyword
+					"storage.type.class.js" //class keyword
+				],
+				"settings": {
+					"fontStyle": "italic"
+				}
+			},
+			{
+				"scope": [
+					//following will be excluded from italics (VSCode has some defaults for italics)
+					"invalid",
+					"keyword.operator",
+					"constant.numeric.css",
+					"keyword.other.unit.px.css",
+					"constant.numeric.decimal.js",
+					"constant.numeric.json"
+				],
+				"settings": {
+					"fontStyle": ""
+				}
+			}
+		]
+	},
+
+	//Terminal
+	"terminal.integrated.fontFamily": "Iosevka NFM",
+	"terminal.integrated.fontSize": 15,
+	"terminal.integrated.tabs.enabled": false,
+
+	//Explorer
+	"explorer.confirmDelete": false,
+	"explorer.compactFolders": false,
+	"explorer.confirmDragAndDrop": false,
+	//Разрешить уменьшение размера вкладок, когда доступного места недостаточно для отображения всех вкладок одновременно.
+	"workbench.editor.tabSizing": "shrink",
+	"workbench.startupEditor": "newUntitledFile",
+
+	//Debug
+	"debug.toolBarLocation": "hidden",
+	"debug.focusWindowOnBreak": false,
+	"debug.showInlineBreakpointCandidates": false,
+	"debug.showBreakpointsInOverviewRuler": false,
+
+	// Emmet
+	"emmet.includeLanguages": {
+		"blade": "html",
+		"javascript": "javascriptreact"
+	},
+	"emmet.triggerExpansionOnTab": true,
+
+	//Format
+	"prettier.semi": false,
+	"prettier.useTabs": true,
+	"editor.formatOnSave": true,
+	"prettier.singleQuote": true,
+	"prettier.jsxSingleQuote": true,
+	"editor.codeActionsOnSave": {
+		"source.organizeImports": "explicit"
+	},
+	"[prisma]": {
+		"editor.defaultFormatter": "Prisma.prisma"
+	},
+	//Включите круглые скобки вокруг единственного параметра функции стрелки
+	"prettier.arrowParens": "avoid",
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	// "files.associations": { "*.scss": "postcss", "*.module.scss": "postcss" },
+	"editor.inlineSuggest.enabled": true,
+
+	//Laravel
+	"[blade]": {
+		"editor.defaultFormatter": "onecentlin.laravel-blade"
+	},
+	"[php]": {
+		"editor.defaultFormatter": "DEVSENSE.phptools-vscode"
+	},
+
+	//Breadcrumbs
+	"breadcrumbs.icons": false,
+	"breadcrumbs.showKeys": false,
+	"breadcrumbs.showFiles": false,
+	"breadcrumbs.symbolPath": "off",
+	"breadcrumbs.showArrays": false,
+	"breadcrumbs.showEvents": false,
+	"breadcrumbs.showFields": false,
+	"breadcrumbs.showClasses": false,
+	"breadcrumbs.showMethods": false,
+	"breadcrumbs.showBooleans": false,
+	"breadcrumbs.showFunctions": false,
+	"breadcrumbs.showConstants": false,
+	"breadcrumbs.showEnumMembers": false,
+	"breadcrumbs.showConstructors": false,
+
+	//JS & TS
+	"javascript.updateImportsOnFileMove.enabled": "always",
+	"typescript.updateImportsOnFileMove.enabled": "always",
+	"typescript.preferences.quoteStyle": "single",
+	"javascript.preferences.quoteStyle": "single",
+	"javascript.format.semicolons": "remove",
+	"typescript.format.semicolons": "remove",
+	// Использование экспериментальных декораторов в JS/TS
+	"js/ts.implicitProjectConfig.experimentalDecorators": true,
+
+	//Spell checker
+	"cSpell.language": "en,ru",
+	"cSpell.userWords": [],
+	"cSpell.enabled": true,
+	"cSpell.enableFiletypes": ["blade", "jsx", "tsx", "ts", "js", "scss", "sass", "vue"],
+
+	"editor.unicodeHighlight.allowedCharacters": {
+		"а": true,
+		"с": true,
+		"Т": true,
+		"б": true,
+		"е": true
+	},
+	"editor.hideCursorInOverviewRuler": true,
+	"git.enableSmartCommit": true,
+
+	"files.exclude": {
+		"**/.expo": true,
+		"**/.expo-shared": true,
+		"**/.idea": true,
+		"**/.next": true,
+		"**/.nuxt": true,
+		"**/dist": true
+	},
+
+	// OTHER
+	// Язык по умолчанию для новых файлов
+	"files.defaultLanguage": "plaintext",
+	"files.autoSave": "afterDelay",
+	// Игнорировать пробелы при сравнении в редакторе diff
+	"diffEditor.ignoreTrimWhitespace": false,
+	// Открытие не доверенных файлов без предупреждения
+	"security.workspace.trust.untrustedFiles": "open",
+	// Автоматически изменять предложение автозаполнения на основе предыдущего выбора
+	"vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+	// Подтверждение перед закрытием окна только при использовании клавиатуры
+	"window.confirmBeforeClose": "keyboardOnly",
+	// Не открывать репозиторий в родительских папках
+	"git.openRepositoryInParentFolders": "never",
+
+	// Поведение при обнаружении нескольких определений
+	"editor.gotoLocation.multipleDefinitions": "goto",
+	// Скрыть подсказку в пустом редакторе
+	"workbench.editor.empty.hint": "hidden",
+	"scm.inputFontFamily": "JetBrains Mono",
+	"editor.inlineSuggest.fontFamily": "JetBrains Mono",
+	"chat.editor.fontFamily": "JetBrains Mono",
+	"workbench.iconTheme": "material-icon-theme",
+	"editor.mouseWheelZoom": true,
+	"go.toolsManagement.autoUpdate": true,
+	"github.copilot.advanced": {
+		"authProvider": "github-enterprise"
+	},
+	"github-enterprise.uri": "https://octocat.ghe.com",
+	"chat.commandCenter.enabled": false,
+	"editor.smoothScrolling": true,
+	"editor.cursorSmoothCaretAnimation": "on",
+	"geminicodeassist.project": "neon-emitter-456706-v4",
+	"diffEditor.codeLens": true,
+	"prettier.printWidth": 100,
+	"redhat.telemetry.enabled": true,
+	"editor.guides.bracketPairs": true,
+	"editor.guides.indentation": false,
+	"code-runner.runInTerminal": true,
+	"workbench.colorTheme": "Kanagawa Wave",
+	"workbench.activityBar.location": "top"
 }
