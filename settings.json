@@ -1,18 +1,18 @@
 {
 	//Main editor settings
 	"window.openFilesInNewWindow": "off",
-	"editor.tabSize": 4,
+	"editor.tabSize": 2,
 	"editor.folding": false,
 	"editor.insertSpaces": false,
 	"editor.detectIndentation": true,
 	"editor.suggestSelection": "first",
 	"editor.multiCursorModifier": "ctrlCmd",
-	"window.zoomLevel": 1.25,
+	"window.zoomLevel": 1,
 
 	// Wrapping
 	"editor.wordWrap": "bounded",
 	"editor.wrappingIndent": "same",
-	"editor.wordWrapColumn": 80,
+	"editor.wordWrapColumn": 100,
 
 	//Определяет, будет ли редактор прокручиваться за пределы последней строки.
 	"editor.scrollBeyondLastLine": true,
@@ -37,15 +37,13 @@
 	"editor.scrollbar.vertical": "hidden",
 	"window.density.editorTabHeight": "compact",
 	"editor.accessibilitySupport": "off",
-	"window.commandCenter": false,
 	"symbols.hidesExplorerArrows": false,
 
 	// Cursor
 	"editor.cursorBlinking": "expand",
-	"editor.cursorStyle": "line-thin",
 	"editor.lineHeight": 25,
-	"editor.fontLigatures": false,
-	"editor.fontFamily": "JetBrains Mono",
+	"editor.fontLigatures": true,
+	"editor.fontFamily": "Cascadia Code",
 
 	"editor.tokenColorCustomizations": {
 		"textMateRules": [
@@ -82,7 +80,7 @@
 
 	//Terminal
 	"terminal.integrated.fontFamily": "Iosevka NFM",
-	"terminal.integrated.fontSize": 15,
+	"terminal.integrated.fontSize": 14,
 	"terminal.integrated.tabs.enabled": false,
 
 	//Explorer
@@ -94,9 +92,9 @@
 	"workbench.startupEditor": "newUntitledFile",
 
 	//Debug
-	"debug.toolBarLocation": "hidden",
-	"debug.focusWindowOnBreak": false,
-	"debug.showInlineBreakpointCandidates": false,
+	"debug.toolBarLocation": "floating",
+	"debug.focusWindowOnBreak": true,
+	"debug.showInlineBreakpointCandidates": true,
 	"debug.showBreakpointsInOverviewRuler": false,
 
 	// Emmet
@@ -205,14 +203,10 @@
 	"scm.inputFontFamily": "JetBrains Mono",
 	"editor.inlineSuggest.fontFamily": "JetBrains Mono",
 	"chat.editor.fontFamily": "JetBrains Mono",
-	"workbench.iconTheme": "material-icon-theme",
+	"workbench.iconTheme": "icons",
 	"editor.mouseWheelZoom": true,
 	"go.toolsManagement.autoUpdate": true,
-	"github.copilot.advanced": {
-		"authProvider": "github-enterprise"
-	},
-	"github-enterprise.uri": "https://octocat.ghe.com",
-	"chat.commandCenter.enabled": false,
+	"github.copilot.advanced": {},
 	"editor.smoothScrolling": true,
 	"editor.cursorSmoothCaretAnimation": "on",
 	"geminicodeassist.project": "neon-emitter-456706-v4",
@@ -222,6 +216,14 @@
 	"editor.guides.bracketPairs": true,
 	"editor.guides.indentation": false,
 	"code-runner.runInTerminal": true,
-	"workbench.colorTheme": "Kanagawa Wave",
-	"workbench.activityBar.location": "top"
+	"editor.fontSize": 18,
+	"dart.cliConsole": "terminal",
+	"editor.cursorStyle": "block",
+	"editor.stickyScroll.enabled": false,
+	"dart.flutterSdkPath": "D:\\flutter",
+	"workbench.colorTheme": "Adonis+ Eclipse",
+	"tabnine.experimentalAutoImports": true,
+	"chat.commandCenter.enabled": false,
+	"editor.formatOnPaste": true,
+	"breadcrumbs.enabled": false
 }
